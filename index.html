@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=3" />
   </head>
   <body>
     <header class="bar">
@@ -28,24 +28,27 @@
     </header>
 
     <main id="top">
-      <section class="hero" id="showreel">
+      <section class="hero">
+        <p class="hero__name">DOMJA</p>
+        <h1>Video editor</h1>
+        <p class="hero__line">
+          TikTok edity, clipy, trailery pro hry a videa na zakázku.
+          Střihám v DaVinci Resolve.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--fill" href="#showreel">Přehrát showreel</a>
+          <a class="btn btn--line" href="#contact">Napsat</a>
+        </div>
+      </section>
+
+      <section class="block" id="showreel">
+        <div class="block__head">
+          <h2>Showreel</h2>
+          <p>Nejsilnější momenty z práce</p>
+        </div>
         <div class="stage" data-video-slot="showreel">
           <div class="stage__empty">
             <span>SHOWREEL</span>
-          </div>
-          <div class="stage__overlay">
-            <p class="stage__name">DOMJA</p>
-            <p class="stage__role">Video editor</p>
-          </div>
-        </div>
-        <div class="strip">
-          <p>
-            TikTok edity, clipy, trailery pro hry a videa na zakázku.
-            Střihám v DaVinci Resolve.
-          </p>
-          <div class="strip__actions">
-            <a class="btn btn--fill" href="#showreel">Přehrát showreel</a>
-            <a class="btn btn--line" href="#contact">Napsat</a>
           </div>
         </div>
       </section>
@@ -130,6 +133,6 @@
       <span>DaVinci Resolve</span>
     </footer>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
   </body>
 </html>
