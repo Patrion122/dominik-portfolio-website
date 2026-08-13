@@ -7,8 +7,8 @@
   --line: rgba(255, 255, 255, 0.08);
   --accent: #3ee0c4;
   --accent-dim: rgba(62, 224, 196, 0.14);
-  --font: "Inter", sans-serif;
-  --display: "Outfit", sans-serif;
+  --font: "Manrope", sans-serif;
+  --display: "Space Grotesk", sans-serif;
   --pad: clamp(1.25rem, 4vw, 2.75rem);
   --max: 70rem;
   --radius: 1.15rem;
@@ -114,9 +114,9 @@ a {
 .hero h1 {
   font-family: var(--display);
   font-size: clamp(3.6rem, 13vw, 7.4rem);
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  line-height: 0.9;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
   margin-bottom: 0.7rem;
 }
 
