@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Sora:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -25,12 +25,21 @@
         <a href="#showreel">Showreel</a>
         <a href="#work">Work</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a class="nav__cta" href="#contact">Contact</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero">
+        <div class="hero__stage" aria-hidden="true">
+          <div class="hero__glow"></div>
+          <div class="hero__grid"></div>
+          <div class="hero__letterbox">
+            <span class="hero__timecode">01:00:00:00</span>
+            <span class="hero__res">1920 × 1080</span>
+          </div>
+        </div>
+
         <div class="hero__content">
           <p class="hero__brand">Dominik</p>
           <h1 class="hero__title">Video editor</h1>
@@ -38,20 +47,24 @@
             Trailery, short-form edity a střih v DaVinci Resolve.
           </p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#showreel">Watch showreel</a>
+            <a class="btn btn--primary" href="#showreel">
+              <span class="btn__play" aria-hidden="true"></span>
+              Watch showreel
+            </a>
             <a class="btn btn--ghost" href="#contact">Contact</a>
           </div>
         </div>
-        <div class="hero__visual" aria-hidden="true"></div>
       </section>
 
       <section class="section showreel" id="showreel">
         <div class="section__head">
+          <p class="section__index">01</p>
           <h2>Showreel</h2>
           <p>Nejsilnější momenty z trailerů a short-form editů.</p>
         </div>
         <div class="video-frame" data-video-slot="showreel">
           <div class="video-frame__placeholder">
+            <span class="play-mark" aria-hidden="true"></span>
             <span>Showreel soon</span>
             <small>Sem přijde YouTube embed</small>
           </div>
@@ -60,78 +73,114 @@
 
       <section class="section work" id="work">
         <div class="section__head">
-          <h2>Work</h2>
-          <p>Vybrané projekty — trailery a short-form.</p>
+          <p class="section__index">02</p>
+          <h2>Selected work</h2>
+          <p>Trailery k assetům a short-form edity pro TikTok.</p>
         </div>
 
         <div class="work-group">
-          <h3 class="work-group__label">Trailers / Asset spots</h3>
+          <div class="work-group__head">
+            <h3 class="work-group__label">Trailers</h3>
+            <p class="work-group__note">Asset spots · cinematic cuts</p>
+          </div>
           <div class="work-grid">
             <article class="work-item" data-video-slot="trailer-1">
               <div class="work-item__media">
-                <span>Video soon</span>
+                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
+                <span class="work-item__soon">Video soon</span>
               </div>
-              <h4 class="work-item__title">Trailer 01</h4>
-              <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
+              <div class="work-item__copy">
+                <h4 class="work-item__title">Trailer 01</h4>
+                <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
+              </div>
             </article>
             <article class="work-item" data-video-slot="trailer-2">
               <div class="work-item__media">
-                <span>Video soon</span>
+                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
+                <span class="work-item__soon">Video soon</span>
               </div>
-              <h4 class="work-item__title">Trailer 02</h4>
-              <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
+              <div class="work-item__copy">
+                <h4 class="work-item__title">Trailer 02</h4>
+                <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
+              </div>
             </article>
             <article class="work-item" data-video-slot="trailer-3">
               <div class="work-item__media">
-                <span>Video soon</span>
+                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
+                <span class="work-item__soon">Video soon</span>
               </div>
-              <h4 class="work-item__title">Trailer 03</h4>
-              <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
+              <div class="work-item__copy">
+                <h4 class="work-item__title">Trailer 03</h4>
+                <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
+              </div>
             </article>
           </div>
         </div>
 
         <div class="work-group">
-          <h3 class="work-group__label">Short-form / TikTok</h3>
+          <div class="work-group__head">
+            <h3 class="work-group__label">Short-form</h3>
+            <p class="work-group__note">TikTok · beat sync · captions</p>
+          </div>
           <div class="work-grid work-grid--vertical">
             <article class="work-item work-item--vertical" data-video-slot="short-1">
               <div class="work-item__media">
-                <span>Video soon</span>
+                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
+                <span class="work-item__soon">Video soon</span>
               </div>
-              <h4 class="work-item__title">Edit 01</h4>
-              <p class="work-item__meta">Short-form · Beat sync</p>
+              <div class="work-item__copy">
+                <h4 class="work-item__title">Edit 01</h4>
+                <p class="work-item__meta">Short-form · Beat sync</p>
+              </div>
             </article>
             <article class="work-item work-item--vertical" data-video-slot="short-2">
               <div class="work-item__media">
-                <span>Video soon</span>
+                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
+                <span class="work-item__soon">Video soon</span>
               </div>
-              <h4 class="work-item__title">Edit 02</h4>
-              <p class="work-item__meta">Short-form · Captions</p>
+              <div class="work-item__copy">
+                <h4 class="work-item__title">Edit 02</h4>
+                <p class="work-item__meta">Short-form · Captions</p>
+              </div>
             </article>
             <article class="work-item work-item--vertical" data-video-slot="short-3">
               <div class="work-item__media">
-                <span>Video soon</span>
+                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
+                <span class="work-item__soon">Video soon</span>
               </div>
-              <h4 class="work-item__title">Edit 03</h4>
-              <p class="work-item__meta">Short-form · Transitions</p>
+              <div class="work-item__copy">
+                <h4 class="work-item__title">Edit 03</h4>
+                <p class="work-item__meta">Short-form · Transitions</p>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
       <section class="section about" id="about">
-        <div class="section__head">
-          <h2>About</h2>
-          <p>
+        <div class="about__layout">
+          <div class="section__head">
+            <p class="section__index">03</p>
+            <h2>About</h2>
+          </div>
+          <p class="about__text">
             Začínající video editor. Střihám trailery k assetům a short-form
-            obsah pro TikTok v DaVinci Resolve — rytmus, text, color, tempo.
+            obsah pro TikTok v DaVinci Resolve — rytmus, text, color a tempo,
+            které drží pozornost.
           </p>
+          <ul class="about__tags">
+            <li>DaVinci Resolve</li>
+            <li>Trailers</li>
+            <li>Short-form</li>
+            <li>Color</li>
+          </ul>
         </div>
       </section>
 
       <section class="section contact" id="contact">
         <div class="section__head">
-          <h2>Contact</h2>
+          <p class="section__index">04</p>
+          <h2>Let’s work</h2>
           <p>Open for edits, trailers a short-form spolupráci.</p>
         </div>
         <ul class="contact-list">
@@ -152,7 +201,8 @@
     </main>
 
     <footer class="site-footer">
-      <p>© <span id="year"></span> Dominik · Video Editor</p>
+      <p>© <span id="year"></span> Dominik</p>
+      <p class="site-footer__note">Video Editor · DaVinci Resolve</p>
     </footer>
 
     <script src="script.js"></script>

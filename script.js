@@ -4,7 +4,7 @@ if (year) {
 }
 
 const revealItems = document.querySelectorAll(
-  ".section, .work-group, .contact-list"
+  ".section, .work-group, .about__tags, .contact-list"
 );
 
 revealItems.forEach((el) => el.classList.add("reveal"));
