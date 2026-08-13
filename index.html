@@ -5,137 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Dominik — video editor. Trailers, short-form edits, DaVinci Resolve."
+      content="Dominik — video editor. TikTok edits, game trailers, Unity asset trailers."
     />
     <title>Dominik — Video Editor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="top">
-      <a class="top__logo" href="#top">Dominik</a>
-      <nav class="top__nav" aria-label="Hlavní">
-        <a href="#reel">Reel</a>
-        <a href="#work">Work</a>
-        <a href="#info">Info</a>
+    <header class="header">
+      <a class="logo" href="#top">Dominik</a>
+      <nav class="nav" aria-label="Hlavní">
+        <a href="#showreel">Showreel</a>
+        <a href="#trailers">Trailers</a>
+        <a href="#shorts">Shorts</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero">
-        <p class="hero__brand">Dominik</p>
-        <div class="hero__row">
-          <h1>Video editor</h1>
-          <p class="hero__lead">
-            Trailery, short-form a střih v DaVinci Resolve.
-          </p>
-        </div>
-        <div class="hero__cta">
-          <a href="#reel">Play showreel</a>
-          <a href="#info">Get in touch</a>
+        <p class="hero__name">Dominik</p>
+        <h1>Video editor</h1>
+        <p class="hero__line">
+          TikTok edits · game trailers · Unity asset trailers · clips
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--fill" href="#showreel">Watch showreel</a>
+          <a class="btn btn--line" href="#contact">Contact</a>
         </div>
       </section>
 
-      <section class="reel" id="reel">
-        <div class="reel__bar">
+      <section class="block" id="showreel">
+        <div class="block__head">
           <h2>Showreel</h2>
-          <span>Coming soon</span>
         </div>
-        <div class="reel__stage" data-video-slot="showreel">
-          <div class="reel__placeholder">
-            <span>Drop showreel here</span>
+        <div class="player" data-video-slot="showreel">
+          <div class="player__empty">
+            <span class="player__icon" aria-hidden="true"></span>
+            <p>Showreel soon</p>
           </div>
         </div>
       </section>
 
-      <section class="work" id="work">
-        <div class="work__intro">
-          <h2>Work</h2>
-          <p>Selected trailers and short-form edits.</p>
+      <section class="block" id="trailers">
+        <div class="block__head">
+          <h2>Trailers</h2>
+          <p>Game & Unity asset trailers</p>
         </div>
-
-        <div class="stack">
-          <article class="row" data-video-slot="trailer-1">
-            <div class="row__meta">
-              <span>01</span>
-              <h3>Trailer 01</h3>
-              <p>Asset trailer</p>
-            </div>
-            <div class="row__media">
+        <div class="grid">
+          <article class="item" data-video-slot="trailer-1">
+            <div class="item__thumb">
               <span>Video soon</span>
             </div>
+            <h3>Trailer 01</h3>
+            <p>Game / asset trailer</p>
           </article>
-
-          <article class="row" data-video-slot="trailer-2">
-            <div class="row__meta">
-              <span>02</span>
-              <h3>Trailer 02</h3>
-              <p>Asset trailer</p>
-            </div>
-            <div class="row__media">
+          <article class="item" data-video-slot="trailer-2">
+            <div class="item__thumb">
               <span>Video soon</span>
             </div>
+            <h3>Trailer 02</h3>
+            <p>Game / asset trailer</p>
           </article>
-
-          <article class="row" data-video-slot="trailer-3">
-            <div class="row__meta">
-              <span>03</span>
-              <h3>Trailer 03</h3>
-              <p>Asset trailer</p>
-            </div>
-            <div class="row__media">
+          <article class="item" data-video-slot="trailer-3">
+            <div class="item__thumb">
               <span>Video soon</span>
             </div>
+            <h3>Trailer 03</h3>
+            <p>Game / asset trailer</p>
           </article>
-        </div>
-
-        <div class="shorts">
-          <div class="shorts__head">
-            <h3>Short-form</h3>
-            <p>TikTok edits</p>
-          </div>
-          <div class="shorts__grid">
-            <article class="short" data-video-slot="short-1">
-              <div class="short__media"><span>01</span></div>
-              <h4>Edit 01</h4>
-            </article>
-            <article class="short" data-video-slot="short-2">
-              <div class="short__media"><span>02</span></div>
-              <h4>Edit 02</h4>
-            </article>
-            <article class="short" data-video-slot="short-3">
-              <div class="short__media"><span>03</span></div>
-              <h4>Edit 03</h4>
-            </article>
-          </div>
         </div>
       </section>
 
-      <section class="info" id="info">
-        <div class="info__about">
+      <section class="block" id="shorts">
+        <div class="block__head">
+          <h2>Shorts</h2>
+          <p>TikTok edits & clips</p>
+        </div>
+        <div class="grid grid--shorts">
+          <article class="item item--short" data-video-slot="short-1">
+            <div class="item__thumb">
+              <span>Video soon</span>
+            </div>
+            <h3>Edit 01</h3>
+            <p>TikTok / clip</p>
+          </article>
+          <article class="item item--short" data-video-slot="short-2">
+            <div class="item__thumb">
+              <span>Video soon</span>
+            </div>
+            <h3>Edit 02</h3>
+            <p>TikTok / clip</p>
+          </article>
+          <article class="item item--short" data-video-slot="short-3">
+            <div class="item__thumb">
+              <span>Video soon</span>
+            </div>
+            <h3>Edit 03</h3>
+            <p>TikTok / clip</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="block about" id="about">
+        <div class="block__head">
           <h2>About</h2>
-          <p>
-            Začínající video editor. Dělám trailery k assetům a short-form
-            obsah pro TikTok — rytmus, text, color, tempo.
-          </p>
         </div>
-        <div class="info__contact">
+        <p class="about__text">
+          Jsem začínající video editor. Střihám v DaVinci Resolve — TikTok
+          edity, clipy a trailery pro hry i Unity assety.
+        </p>
+      </section>
+
+      <section class="block contact" id="contact">
+        <div class="block__head">
           <h2>Contact</h2>
-          <a href="mailto:hello@example.com">hello@example.com</a>
-          <a href="#">TikTok @dominik</a>
-          <a href="#">Instagram @dominik</a>
         </div>
+        <ul class="links">
+          <li>
+            <span>Email</span>
+            <a href="mailto:hello@example.com">hello@example.com</a>
+          </li>
+          <li>
+            <span>TikTok</span>
+            <a href="#" rel="noopener noreferrer">@dominik</a>
+          </li>
+          <li>
+            <span>Discord</span>
+            <a href="#">dominik</a>
+          </li>
+        </ul>
       </section>
     </main>
 
-    <footer class="foot">
-      <span>© <span id="year"></span> Dominik</span>
-      <span>DaVinci Resolve</span>
+    <footer class="footer">
+      <p>© <span id="year"></span> Dominik</p>
     </footer>
 
     <script src="script.js"></script>
