@@ -1,7 +1,9 @@
 const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
 
-const revealItems = document.querySelectorAll(".panel");
+const revealItems = document.querySelectorAll(
+  ".strip, .block, .cut, .contact"
+);
 
 const observer = new IntersectionObserver(
   (entries) => {
