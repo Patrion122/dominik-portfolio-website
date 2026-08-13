@@ -111,29 +111,6 @@ a {
   animation: fade-up 0.85s var(--ease) both;
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1.4rem;
-  padding: 0.4rem 0.8rem 0.4rem 0.65rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.badge::before {
-  content: "";
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-dim);
-}
-
 .hero h1 {
   font-family: var(--display);
   font-size: clamp(3.6rem, 13vw, 7.4rem);
