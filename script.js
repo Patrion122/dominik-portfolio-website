@@ -1,13 +1,9 @@
 const year = document.getElementById("year");
-if (year) {
-  year.textContent = String(new Date().getFullYear());
-}
+if (year) year.textContent = String(new Date().getFullYear());
 
 const revealItems = document.querySelectorAll(
-  ".section, .work-group, .about__tags, .contact-list"
+  ".reel, .work__intro, .row, .shorts, .info"
 );
-
-revealItems.forEach((el) => el.classList.add("reveal"));
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -18,7 +14,10 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+  { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
 );
 
-revealItems.forEach((el) => observer.observe(el));
+revealItems.forEach((el) => {
+  el.classList.add("reveal");
+  observer.observe(el);
+});

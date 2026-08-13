@@ -11,198 +11,131 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Sora:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="grain" aria-hidden="true"></div>
-
-    <header class="site-header">
-      <a class="logo" href="#top">Dominik</a>
-      <nav class="nav" aria-label="Hlavní">
-        <a href="#showreel">Showreel</a>
+    <header class="top">
+      <a class="top__logo" href="#top">Dominik</a>
+      <nav class="top__nav" aria-label="Hlavní">
+        <a href="#reel">Reel</a>
         <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a class="nav__cta" href="#contact">Contact</a>
+        <a href="#info">Info</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero">
-        <div class="hero__stage" aria-hidden="true">
-          <div class="hero__glow"></div>
-          <div class="hero__grid"></div>
-          <div class="hero__letterbox">
-            <span class="hero__timecode">01:00:00:00</span>
-            <span class="hero__res">1920 × 1080</span>
-          </div>
-        </div>
-
-        <div class="hero__content">
-          <p class="hero__brand">Dominik</p>
-          <h1 class="hero__title">Video editor</h1>
+        <p class="hero__brand">Dominik</p>
+        <div class="hero__row">
+          <h1>Video editor</h1>
           <p class="hero__lead">
-            Trailery, short-form edity a střih v DaVinci Resolve.
+            Trailery, short-form a střih v DaVinci Resolve.
           </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#showreel">
-              <span class="btn__play" aria-hidden="true"></span>
-              Watch showreel
-            </a>
-            <a class="btn btn--ghost" href="#contact">Contact</a>
-          </div>
+        </div>
+        <div class="hero__cta">
+          <a href="#reel">Play showreel</a>
+          <a href="#info">Get in touch</a>
         </div>
       </section>
 
-      <section class="section showreel" id="showreel">
-        <div class="section__head">
-          <p class="section__index">01</p>
+      <section class="reel" id="reel">
+        <div class="reel__bar">
           <h2>Showreel</h2>
-          <p>Nejsilnější momenty z trailerů a short-form editů.</p>
+          <span>Coming soon</span>
         </div>
-        <div class="video-frame" data-video-slot="showreel">
-          <div class="video-frame__placeholder">
-            <span class="play-mark" aria-hidden="true"></span>
-            <span>Showreel soon</span>
-            <small>Sem přijde YouTube embed</small>
+        <div class="reel__stage" data-video-slot="showreel">
+          <div class="reel__placeholder">
+            <span>Drop showreel here</span>
           </div>
         </div>
       </section>
 
-      <section class="section work" id="work">
-        <div class="section__head">
-          <p class="section__index">02</p>
-          <h2>Selected work</h2>
-          <p>Trailery k assetům a short-form edity pro TikTok.</p>
+      <section class="work" id="work">
+        <div class="work__intro">
+          <h2>Work</h2>
+          <p>Selected trailers and short-form edits.</p>
         </div>
 
-        <div class="work-group">
-          <div class="work-group__head">
-            <h3 class="work-group__label">Trailers</h3>
-            <p class="work-group__note">Asset spots · cinematic cuts</p>
-          </div>
-          <div class="work-grid">
-            <article class="work-item" data-video-slot="trailer-1">
-              <div class="work-item__media">
-                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
-                <span class="work-item__soon">Video soon</span>
-              </div>
-              <div class="work-item__copy">
-                <h4 class="work-item__title">Trailer 01</h4>
-                <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
-              </div>
-            </article>
-            <article class="work-item" data-video-slot="trailer-2">
-              <div class="work-item__media">
-                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
-                <span class="work-item__soon">Video soon</span>
-              </div>
-              <div class="work-item__copy">
-                <h4 class="work-item__title">Trailer 02</h4>
-                <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
-              </div>
-            </article>
-            <article class="work-item" data-video-slot="trailer-3">
-              <div class="work-item__media">
-                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
-                <span class="work-item__soon">Video soon</span>
-              </div>
-              <div class="work-item__copy">
-                <h4 class="work-item__title">Trailer 03</h4>
-                <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
-              </div>
-            </article>
-          </div>
+        <div class="stack">
+          <article class="row" data-video-slot="trailer-1">
+            <div class="row__meta">
+              <span>01</span>
+              <h3>Trailer 01</h3>
+              <p>Asset trailer</p>
+            </div>
+            <div class="row__media">
+              <span>Video soon</span>
+            </div>
+          </article>
+
+          <article class="row" data-video-slot="trailer-2">
+            <div class="row__meta">
+              <span>02</span>
+              <h3>Trailer 02</h3>
+              <p>Asset trailer</p>
+            </div>
+            <div class="row__media">
+              <span>Video soon</span>
+            </div>
+          </article>
+
+          <article class="row" data-video-slot="trailer-3">
+            <div class="row__meta">
+              <span>03</span>
+              <h3>Trailer 03</h3>
+              <p>Asset trailer</p>
+            </div>
+            <div class="row__media">
+              <span>Video soon</span>
+            </div>
+          </article>
         </div>
 
-        <div class="work-group">
-          <div class="work-group__head">
-            <h3 class="work-group__label">Short-form</h3>
-            <p class="work-group__note">TikTok · beat sync · captions</p>
+        <div class="shorts">
+          <div class="shorts__head">
+            <h3>Short-form</h3>
+            <p>TikTok edits</p>
           </div>
-          <div class="work-grid work-grid--vertical">
-            <article class="work-item work-item--vertical" data-video-slot="short-1">
-              <div class="work-item__media">
-                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
-                <span class="work-item__soon">Video soon</span>
-              </div>
-              <div class="work-item__copy">
-                <h4 class="work-item__title">Edit 01</h4>
-                <p class="work-item__meta">Short-form · Beat sync</p>
-              </div>
+          <div class="shorts__grid">
+            <article class="short" data-video-slot="short-1">
+              <div class="short__media"><span>01</span></div>
+              <h4>Edit 01</h4>
             </article>
-            <article class="work-item work-item--vertical" data-video-slot="short-2">
-              <div class="work-item__media">
-                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
-                <span class="work-item__soon">Video soon</span>
-              </div>
-              <div class="work-item__copy">
-                <h4 class="work-item__title">Edit 02</h4>
-                <p class="work-item__meta">Short-form · Captions</p>
-              </div>
+            <article class="short" data-video-slot="short-2">
+              <div class="short__media"><span>02</span></div>
+              <h4>Edit 02</h4>
             </article>
-            <article class="work-item work-item--vertical" data-video-slot="short-3">
-              <div class="work-item__media">
-                <span class="play-mark play-mark--sm" aria-hidden="true"></span>
-                <span class="work-item__soon">Video soon</span>
-              </div>
-              <div class="work-item__copy">
-                <h4 class="work-item__title">Edit 03</h4>
-                <p class="work-item__meta">Short-form · Transitions</p>
-              </div>
+            <article class="short" data-video-slot="short-3">
+              <div class="short__media"><span>03</span></div>
+              <h4>Edit 03</h4>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section about" id="about">
-        <div class="about__layout">
-          <div class="section__head">
-            <p class="section__index">03</p>
-            <h2>About</h2>
-          </div>
-          <p class="about__text">
-            Začínající video editor. Střihám trailery k assetům a short-form
-            obsah pro TikTok v DaVinci Resolve — rytmus, text, color a tempo,
-            které drží pozornost.
+      <section class="info" id="info">
+        <div class="info__about">
+          <h2>About</h2>
+          <p>
+            Začínající video editor. Dělám trailery k assetům a short-form
+            obsah pro TikTok — rytmus, text, color, tempo.
           </p>
-          <ul class="about__tags">
-            <li>DaVinci Resolve</li>
-            <li>Trailers</li>
-            <li>Short-form</li>
-            <li>Color</li>
-          </ul>
         </div>
-      </section>
-
-      <section class="section contact" id="contact">
-        <div class="section__head">
-          <p class="section__index">04</p>
-          <h2>Let’s work</h2>
-          <p>Open for edits, trailers a short-form spolupráci.</p>
+        <div class="info__contact">
+          <h2>Contact</h2>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+          <a href="#">TikTok @dominik</a>
+          <a href="#">Instagram @dominik</a>
         </div>
-        <ul class="contact-list">
-          <li>
-            <span>Email</span>
-            <a href="mailto:hello@example.com">hello@example.com</a>
-          </li>
-          <li>
-            <span>TikTok</span>
-            <a href="#" rel="noopener noreferrer">@dominik</a>
-          </li>
-          <li>
-            <span>Instagram</span>
-            <a href="#" rel="noopener noreferrer">@dominik</a>
-          </li>
-        </ul>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p>© <span id="year"></span> Dominik</p>
-      <p class="site-footer__note">Video Editor · DaVinci Resolve</p>
+    <footer class="foot">
+      <span>© <span id="year"></span> Dominik</span>
+      <span>DaVinci Resolve</span>
     </footer>
 
     <script src="script.js"></script>
