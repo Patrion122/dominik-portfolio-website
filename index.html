@@ -3,10 +3,158 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dominik — Portfolio</title>
+    <meta
+      name="description"
+      content="Dominik — video editor. Trailers, short-form edits, DaVinci Resolve."
+    />
+    <title>Dominik — Video Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main></main>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="logo" href="#top">Dominik</a>
+      <nav class="nav" aria-label="Hlavní">
+        <a href="#showreel">Showreel</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero__content">
+          <p class="hero__brand">Dominik</p>
+          <h1 class="hero__title">Video editor</h1>
+          <p class="hero__lead">
+            Trailery, short-form edity a střih v DaVinci Resolve.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#showreel">Watch showreel</a>
+            <a class="btn btn--ghost" href="#contact">Contact</a>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true"></div>
+      </section>
+
+      <section class="section showreel" id="showreel">
+        <div class="section__head">
+          <h2>Showreel</h2>
+          <p>Nejsilnější momenty z trailerů a short-form editů.</p>
+        </div>
+        <div class="video-frame" data-video-slot="showreel">
+          <div class="video-frame__placeholder">
+            <span>Showreel soon</span>
+            <small>Sem přijde YouTube embed</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="section work" id="work">
+        <div class="section__head">
+          <h2>Work</h2>
+          <p>Vybrané projekty — trailery a short-form.</p>
+        </div>
+
+        <div class="work-group">
+          <h3 class="work-group__label">Trailers / Asset spots</h3>
+          <div class="work-grid">
+            <article class="work-item" data-video-slot="trailer-1">
+              <div class="work-item__media">
+                <span>Video soon</span>
+              </div>
+              <h4 class="work-item__title">Trailer 01</h4>
+              <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
+            </article>
+            <article class="work-item" data-video-slot="trailer-2">
+              <div class="work-item__media">
+                <span>Video soon</span>
+              </div>
+              <h4 class="work-item__title">Trailer 02</h4>
+              <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
+            </article>
+            <article class="work-item" data-video-slot="trailer-3">
+              <div class="work-item__media">
+                <span>Video soon</span>
+              </div>
+              <h4 class="work-item__title">Trailer 03</h4>
+              <p class="work-item__meta">Asset trailer · DaVinci Resolve</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="work-group">
+          <h3 class="work-group__label">Short-form / TikTok</h3>
+          <div class="work-grid work-grid--vertical">
+            <article class="work-item work-item--vertical" data-video-slot="short-1">
+              <div class="work-item__media">
+                <span>Video soon</span>
+              </div>
+              <h4 class="work-item__title">Edit 01</h4>
+              <p class="work-item__meta">Short-form · Beat sync</p>
+            </article>
+            <article class="work-item work-item--vertical" data-video-slot="short-2">
+              <div class="work-item__media">
+                <span>Video soon</span>
+              </div>
+              <h4 class="work-item__title">Edit 02</h4>
+              <p class="work-item__meta">Short-form · Captions</p>
+            </article>
+            <article class="work-item work-item--vertical" data-video-slot="short-3">
+              <div class="work-item__media">
+                <span>Video soon</span>
+              </div>
+              <h4 class="work-item__title">Edit 03</h4>
+              <p class="work-item__meta">Short-form · Transitions</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="section__head">
+          <h2>About</h2>
+          <p>
+            Začínající video editor. Střihám trailery k assetům a short-form
+            obsah pro TikTok v DaVinci Resolve — rytmus, text, color, tempo.
+          </p>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="section__head">
+          <h2>Contact</h2>
+          <p>Open for edits, trailers a short-form spolupráci.</p>
+        </div>
+        <ul class="contact-list">
+          <li>
+            <span>Email</span>
+            <a href="mailto:hello@example.com">hello@example.com</a>
+          </li>
+          <li>
+            <span>TikTok</span>
+            <a href="#" rel="noopener noreferrer">@dominik</a>
+          </li>
+          <li>
+            <span>Instagram</span>
+            <a href="#" rel="noopener noreferrer">@dominik</a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Dominik · Video Editor</p>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
