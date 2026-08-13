@@ -1,9 +1,7 @@
 const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
 
-const revealItems = document.querySelectorAll(
-  ".reel, .work__block, .about, .contact"
-);
+const revealItems = document.querySelectorAll(".panel");
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -14,7 +12,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+  { threshold: 0.08, rootMargin: "0px 0px -5% 0px" }
 );
 
 revealItems.forEach((el) => {
