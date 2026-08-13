@@ -1,7 +1,7 @@
 const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
 
-const revealItems = document.querySelectorAll(".block, .split");
+const revealItems = document.querySelectorAll(".section");
 
 const observer = new IntersectionObserver(
   (entries) => {

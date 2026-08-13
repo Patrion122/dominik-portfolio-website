@@ -11,98 +11,84 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bg" aria-hidden="true"></div>
-
     <header class="header">
-      <a class="logo" href="#top">Domja</a>
+      <a class="logo" href="#top">DOMJA</a>
       <nav class="nav" aria-label="Hlavní">
         <a href="#showreel">Showreel</a>
-        <a href="#trailers">Trailers</a>
+        <a href="#trailers">Trailery</a>
         <a href="#shorts">Shorts</a>
-        <a class="nav__contact" href="#contact">Contact</a>
+        <a href="#contact">Kontakt</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero">
-        <h1>Domja</h1>
-        <p class="hero__role">Video editor</p>
-        <p class="hero__line">
-          TikTok edity, clipy, trailery pro hry a videa na zakázku.
-          Střihám v DaVinci Resolve.
-        </p>
-        <ul class="tags">
-          <li>TikTok</li>
-          <li>Game trailers</li>
-          <li>Clips</li>
-          <li>Videa na zakázku</li>
-        </ul>
-        <div class="hero__actions">
-          <a class="btn btn--fill" href="#showreel">
-            <span class="btn__play" aria-hidden="true"></span>
-            Watch showreel
-          </a>
-          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        <div class="hero__copy">
+          <p class="hero__brand">DOMJA</p>
+          <h1>Video editor</h1>
+          <p class="hero__line">
+            TikTok edity, clipy, trailery pro hry a videa na zakázku.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--fill" href="#showreel">Přehrát showreel</a>
+            <a class="btn btn--ghost" href="#contact">Napsat</a>
+          </div>
         </div>
+
+        <a class="hero__reel" href="#showreel" data-video-slot="showreel-teaser">
+          <span class="hero__reel-play" aria-hidden="true"></span>
+          <span class="hero__reel-label">Showreel</span>
+        </a>
       </section>
 
-      <section class="block" id="showreel">
-        <div class="block__head">
-          <div>
-            <p class="eyebrow">Featured</p>
-            <h2>Showreel</h2>
-          </div>
+      <section class="section" id="showreel">
+        <div class="section__head">
+          <h2>Showreel</h2>
+          <p>Nejsilnější momenty z trailerů a short-form editů.</p>
         </div>
         <div class="player" data-video-slot="showreel">
           <div class="player__empty">
-            <span class="play" aria-hidden="true"></span>
-            <p>Showreel soon</p>
-            <small>YouTube embed přijde sem</small>
+            <span class="player__mark">01</span>
+            <p>Showreel brzy</p>
           </div>
         </div>
       </section>
 
-      <section class="block" id="trailers">
-        <div class="block__head">
-          <div>
-            <p class="eyebrow">Work</p>
-            <h2>Trailers</h2>
-          </div>
+      <section class="section" id="trailers">
+        <div class="section__head">
+          <h2>Trailery</h2>
           <p>Trailery pro hry</p>
         </div>
-        <div class="grid">
-          <article class="card" data-video-slot="trailer-1">
-            <div class="card__media">
-              <span class="play play--sm" aria-hidden="true"></span>
-              <span>Video soon</span>
+        <div class="work-list">
+          <article class="work" data-video-slot="trailer-1">
+            <div class="work__media">
+              <span>01</span>
             </div>
-            <div class="card__body">
+            <div class="work__meta">
               <h3>Trailer 01</h3>
               <p>Game trailer</p>
             </div>
           </article>
-          <article class="card" data-video-slot="trailer-2">
-            <div class="card__media">
-              <span class="play play--sm" aria-hidden="true"></span>
-              <span>Video soon</span>
+          <article class="work" data-video-slot="trailer-2">
+            <div class="work__media">
+              <span>02</span>
             </div>
-            <div class="card__body">
+            <div class="work__meta">
               <h3>Trailer 02</h3>
               <p>Game trailer</p>
             </div>
           </article>
-          <article class="card" data-video-slot="trailer-3">
-            <div class="card__media">
-              <span class="play play--sm" aria-hidden="true"></span>
-              <span>Video soon</span>
+          <article class="work" data-video-slot="trailer-3">
+            <div class="work__media">
+              <span>03</span>
             </div>
-            <div class="card__body">
+            <div class="work__meta">
               <h3>Trailer 03</h3>
               <p>Game trailer</p>
             </div>
@@ -110,87 +96,51 @@
         </div>
       </section>
 
-      <section class="block" id="shorts">
-        <div class="block__head">
-          <div>
-            <p class="eyebrow">Work</p>
-            <h2>Shorts</h2>
-          </div>
-          <p>TikTok edits & clips</p>
+      <section class="section" id="shorts">
+        <div class="section__head">
+          <h2>Shorts</h2>
+          <p>TikTok edity a clipy</p>
         </div>
-        <div class="grid grid--shorts">
-          <article class="card card--short" data-video-slot="short-1">
-            <div class="card__media">
-              <span class="play play--sm" aria-hidden="true"></span>
-              <span>Video soon</span>
-            </div>
-            <div class="card__body">
-              <h3>Edit 01</h3>
-              <p>TikTok / clip</p>
-            </div>
+        <div class="shorts">
+          <article class="short" data-video-slot="short-1">
+            <div class="short__media"><span>01</span></div>
+            <h3>Edit 01</h3>
           </article>
-          <article class="card card--short" data-video-slot="short-2">
-            <div class="card__media">
-              <span class="play play--sm" aria-hidden="true"></span>
-              <span>Video soon</span>
-            </div>
-            <div class="card__body">
-              <h3>Edit 02</h3>
-              <p>TikTok / clip</p>
-            </div>
+          <article class="short" data-video-slot="short-2">
+            <div class="short__media"><span>02</span></div>
+            <h3>Edit 02</h3>
           </article>
-          <article class="card card--short" data-video-slot="short-3">
-            <div class="card__media">
-              <span class="play play--sm" aria-hidden="true"></span>
-              <span>Video soon</span>
-            </div>
-            <div class="card__body">
-              <h3>Edit 03</h3>
-              <p>TikTok / clip</p>
-            </div>
+          <article class="short" data-video-slot="short-3">
+            <div class="short__media"><span>03</span></div>
+            <h3>Edit 03</h3>
           </article>
         </div>
       </section>
 
-      <section class="split" id="about">
-        <div class="split__about">
-          <p class="eyebrow">About</p>
-          <h2>Střih, který drží tempo.</h2>
-          <p>
-            Jsem začínající video editor. Dělám TikTok edity, clipy, trailery
-            pro hry a videa na zakázku v DaVinci Resolve.
-          </p>
-        </div>
-        <div class="split__contact" id="contact">
-          <p class="eyebrow">Contact</p>
-          <h2>Let’s work</h2>
-          <ul class="links">
-            <li>
-              <a href="mailto:hello@example.com">
-                <span>Email</span>
-                hello@example.com
-              </a>
-            </li>
-            <li>
-              <a href="#" rel="noopener noreferrer">
-                <span>TikTok</span>
-                @domja
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span>Discord</span>
-                domja
-              </a>
-            </li>
-          </ul>
+      <section class="section section--bottom" id="about">
+        <div class="bottom">
+          <div>
+            <h2>O mně</h2>
+            <p>
+              Střihám v DaVinci Resolve. Dělám TikTok edity, clipy, trailery
+              pro hry a videa na zakázku.
+            </p>
+          </div>
+          <div id="contact">
+            <h2>Kontakt</h2>
+            <ul class="contacts">
+              <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+              <li><a href="#" rel="noopener noreferrer">TikTok @domja</a></li>
+              <li><a href="#">Discord · domja</a></li>
+            </ul>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>© <span id="year"></span> Domja</p>
-      <p>DaVinci Resolve</p>
+      <span>© <span id="year"></span> Domja</span>
+      <span>DaVinci Resolve</span>
     </footer>
 
     <script src="script.js"></script>
