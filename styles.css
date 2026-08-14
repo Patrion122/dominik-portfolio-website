@@ -437,7 +437,7 @@ body.is-menu-open {
 }
 
 .item:first-child {
-  border-top: 1px solid var(--line);
+  border-top: 0;
 }
 
 .item__meta span {
