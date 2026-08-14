@@ -156,7 +156,7 @@ a {
 
 .hero .video-wrap--hero {
   width: 100%;
-  box-shadow: 0 0 48px rgba(47, 127, 255, 0.18);
+  box-shadow: none;
 }
 
 .video-wrap--hero .video-lazy__play {

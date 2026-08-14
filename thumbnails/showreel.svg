@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="640" y1="0" x2="640" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06101f"/>
+      <stop offset="0.45" stop-color="#040914"/>
+      <stop offset="1" stop-color="#02050c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(820 120) rotate(90) scale(420 520)">
+      <stop stop-color="#3878ff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#3878ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 560) rotate(90) scale(260 320)">
+      <stop stop-color="#285ac8" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#285ac8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+  <rect width="1280" height="720" fill="url(#glow2)"/>
+
+  <rect x="0.5" y="0.5" width="1279" height="719" stroke="#222222" stroke-width="1"/>
+
+  <line x1="96" y1="360" x2="1184" y2="360" stroke="#222222" stroke-width="1"/>
+
+  <text
+    x="640"
+    y="292"
+    text-anchor="middle"
+    fill="#4d9fff"
+    font-family="'Barlow Condensed', 'Arial Narrow', sans-serif"
+    font-size="34"
+    font-weight="600"
+    letter-spacing="0.32em"
+  >DOMJA</text>
+
+  <text
+    x="640"
+    y="392"
+    text-anchor="middle"
+    fill="#f4f4f4"
+    font-family="'Barlow Condensed', 'Arial Narrow', sans-serif"
+    font-size="118"
+    font-weight="700"
+    letter-spacing="0.08em"
+  >SHOWREEL</text>
+
+  <line x1="420" y1="430" x2="860" y2="430" stroke="#4d9fff" stroke-width="1" opacity="0.55"/>
+</svg>
