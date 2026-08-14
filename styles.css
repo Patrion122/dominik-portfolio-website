@@ -570,9 +570,19 @@ body.is-menu-open {
 
 .contact__cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 0.75rem;
-  max-width: 52rem;
+  max-width: var(--max);
+}
+
+.contact-card__value {
+  font-family: var(--display);
+  font-size: clamp(0.95rem, 1.6vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  white-space: nowrap;
 }
 
 .contact-card {
@@ -609,16 +619,6 @@ body.is-menu-open {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.contact-card__value {
-  font-family: var(--display);
-  font-size: clamp(1.05rem, 2.2vw, 1.45rem);
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  line-height: 1.15;
-  word-break: break-word;
 }
 
 .foot {
@@ -767,6 +767,11 @@ body.is-menu-open {
   .contact__cards {
     grid-template-columns: 1fr;
     max-width: 24rem;
+  }
+
+  .contact-card__value {
+    white-space: normal;
+    word-break: break-word;
   }
 }
 
