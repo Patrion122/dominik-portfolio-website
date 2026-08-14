@@ -2,7 +2,7 @@ const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
 
 function loadYouTube(wrap, videoId) {
-  if (wrap.classList.contains("is-playing")) return;
+  if (!wrap || wrap.classList.contains("is-playing")) return;
 
   const iframe = document.createElement("iframe");
   iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
@@ -18,9 +18,47 @@ function loadYouTube(wrap, videoId) {
 document.querySelectorAll(".video-lazy").forEach((button) => {
   button.addEventListener("click", () => {
     const wrap = button.closest(".video-wrap");
-    const videoId = button.dataset.youtube;
-    if (wrap && videoId) loadYouTube(wrap, videoId);
+    loadYouTube(wrap, button.dataset.youtube);
   });
+});
+
+const heroWrap = document.querySelector(".video-wrap--hero");
+if (heroWrap) {
+  const heroBtn = heroWrap.querySelector(".video-lazy");
+  const heroObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && heroBtn) {
+          loadYouTube(heroWrap, heroBtn.dataset.youtube);
+          heroObserver.disconnect();
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+  heroObserver.observe(heroWrap);
+}
+
+async function loadTikTokThumb(card) {
+  const url = card.dataset.tiktok;
+  if (!url) return;
+
+  try {
+    const res = await fetch(
+      `https://noembed.com/embed?url=${encodeURIComponent(url)}`
+    );
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data.thumbnail_url) {
+      card.style.backgroundImage = `url("${data.thumbnail_url}")`;
+    }
+  } catch {
+    /* keep gradient fallback */
+  }
+}
+
+document.querySelectorAll(".tiktok-card").forEach((card) => {
+  loadTikTokThumb(card);
 });
 
 const revealItems = document.querySelectorAll(".work__intro, .band, .contact");
