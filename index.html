@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=26" />
+    <link rel="stylesheet" href="styles.css?v=27" />
   </head>
   <body>
     <header class="bar">
@@ -66,12 +66,8 @@
       </section>
 
       <section class="work" id="work">
-        <div class="work__intro-wrap">
-          <div class="work__intro-spacer" aria-hidden="true"></div>
-          <div class="work__intro is-fixed is-centered" id="work-intro">
-            <h2>Projekty</h2>
-            <p>Trailery, montáže, TikTok edity a clipy.</p>
-          </div>
+        <div class="work__intro" id="work-intro">
+          <h2>Projekty</h2>
         </div>
 
         <div class="band" id="trailers">
@@ -309,6 +305,13 @@
       <span>DaVinci Resolve</span>
     </footer>
 
-    <script src="script.js?v=26"></script>
+    <div class="intro-dock" id="intro-dock">
+      <p class="intro-dock__title">Projekty</p>
+      <button class="scroll-hint" type="button" aria-label="Posunout k projektům">
+        <span class="scroll-hint__mouse" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <script src="script.js?v=27"></script>
   </body>
 </html>

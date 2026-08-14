@@ -59,76 +59,54 @@ if (menuBtn && nav) {
 }
 
 const intro = document.getElementById("work-intro");
-const introSpacer = document.querySelector(".work__intro-spacer");
-const workSection = document.getElementById("work");
+const introTitle = intro?.querySelector("h2");
+const dock = document.getElementById("intro-dock");
+const scrollHint = dock?.querySelector(".scroll-hint");
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
-const INTRO_TARGET_TOP = 96;
-const INTRO_BOTTOM = 48;
-let introStartTop = null;
+let introMoved = false;
+let introSettled = false;
 
-function syncIntroSpacer() {
-  if (!intro || !introSpacer) return;
-  introSpacer.style.height = `${intro.offsetHeight}px`;
-}
-
-function resetIntroMetrics() {
-  introStartTop = null;
-  syncIntroSpacer();
-  updateIntroScroll();
+if (introTitle && dock && !prefersReducedMotion) {
+  introTitle.classList.add("is-waiting");
 }
 
 function settleIntro() {
-  if (!intro) return;
-  intro.classList.remove("is-fixed", "is-centered");
-  intro.classList.add("is-settled");
-  intro.style.cssText = "";
+  if (introSettled || !intro || !dock) return;
+  introSettled = true;
+  introMoved = true;
+  introTitle?.classList.remove("is-waiting");
+  dock.classList.add("is-gone");
+  dock.classList.remove("is-flying");
+  dock.style.cssText = "";
 }
 
-function updateIntroScroll() {
-  if (!intro || !introSpacer || !workSection || prefersReducedMotion) {
+function flyIntroHome() {
+  if (introMoved || !intro || !dock || !introTitle) return;
+  introMoved = true;
+
+  if (prefersReducedMotion) {
     settleIntro();
     return;
   }
 
-  syncIntroSpacer();
+  const from = dock.querySelector(".intro-dock__title").getBoundingClientRect();
+  const to = introTitle.getBoundingClientRect();
+  const dx = to.left - from.left;
+  const dy = to.top - from.top;
 
-  if (introStartTop === null) {
-    introStartTop = introSpacer.getBoundingClientRect().top;
-  }
+  dock.classList.add("is-flying");
+  dock.style.transition = "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)";
+  dock.style.transform = `translate(calc(-50% + ${dx}px), ${dy}px)`;
 
-  const spacerTop = introSpacer.getBoundingClientRect().top;
-  const travel = introStartTop - INTRO_TARGET_TOP;
-
-  if (travel <= 0 || spacerTop <= INTRO_TARGET_TOP) {
+  const finish = () => {
+    dock.removeEventListener("transitionend", finish);
     settleIntro();
-    return;
-  }
+  };
 
-  const progress = Math.min(
-    Math.max(1 - (spacerTop - INTRO_TARGET_TOP) / travel, 0),
-    1
-  );
-
-  intro.classList.add("is-fixed");
-  intro.classList.remove("is-settled", "is-centered");
-
-  const introHeight = intro.offsetHeight;
-  const introWidth = Math.min(576, window.innerWidth - 32);
-  const workStyles = getComputedStyle(workSection);
-  const workPad = parseFloat(workStyles.paddingLeft) || 16;
-  const workRect = workSection.getBoundingClientRect();
-
-  const startX = (window.innerWidth - introWidth) / 2;
-  const endX = workRect.left + workPad;
-  const startY = window.innerHeight - INTRO_BOTTOM - introHeight;
-  const endY = INTRO_TARGET_TOP;
-
-  intro.style.left = `${startX + (endX - startX) * progress}px`;
-  intro.style.top = `${startY + (endY - startY) * progress}px`;
-  intro.style.width = `${introWidth}px`;
-  intro.style.textAlign = progress < 0.65 ? "center" : "left";
+  dock.addEventListener("transitionend", finish);
+  window.setTimeout(finish, 800);
 }
 
 const sectionIds = ["showreel", "work", "contact"];
@@ -158,18 +136,25 @@ function updateActiveNav() {
 window.addEventListener(
   "scroll",
   () => {
-    updateIntroScroll();
+    if (window.scrollY > 12) flyIntroHome();
     updateActiveNav();
   },
   { passive: true }
 );
 
 window.addEventListener("resize", () => {
-  resetIntroMetrics();
   if (window.innerWidth > 720) setMenuOpen(false);
 });
 
-resetIntroMetrics();
+scrollHint?.addEventListener("click", () => {
+  flyIntroHome();
+  document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
+});
+
+if (location.hash === "#work" || location.hash === "#contact") {
+  settleIntro();
+}
+
 updateActiveNav();
 
 const revealItems = document.querySelectorAll(".band, .contact");
