@@ -1,6 +1,28 @@
 const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
 
+function loadYouTube(wrap, videoId) {
+  if (wrap.classList.contains("is-playing")) return;
+
+  const iframe = document.createElement("iframe");
+  iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+  iframe.title = "YouTube video";
+  iframe.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  iframe.allowFullscreen = true;
+
+  wrap.classList.add("is-playing");
+  wrap.appendChild(iframe);
+}
+
+document.querySelectorAll(".video-lazy").forEach((button) => {
+  button.addEventListener("click", () => {
+    const wrap = button.closest(".video-wrap");
+    const videoId = button.dataset.youtube;
+    if (wrap && videoId) loadYouTube(wrap, videoId);
+  });
+});
+
 const revealItems = document.querySelectorAll(".work__intro, .band, .contact");
 
 const observer = new IntersectionObserver(
