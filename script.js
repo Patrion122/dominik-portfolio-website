@@ -58,6 +58,79 @@ if (menuBtn && nav) {
   });
 }
 
+const intro = document.getElementById("work-intro");
+const introSpacer = document.querySelector(".work__intro-spacer");
+const workSection = document.getElementById("work");
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+const INTRO_TARGET_TOP = 96;
+const INTRO_BOTTOM = 48;
+let introStartTop = null;
+
+function syncIntroSpacer() {
+  if (!intro || !introSpacer) return;
+  introSpacer.style.height = `${intro.offsetHeight}px`;
+}
+
+function resetIntroMetrics() {
+  introStartTop = null;
+  syncIntroSpacer();
+  updateIntroScroll();
+}
+
+function settleIntro() {
+  if (!intro) return;
+  intro.classList.remove("is-fixed", "is-centered");
+  intro.classList.add("is-settled");
+  intro.style.cssText = "";
+}
+
+function updateIntroScroll() {
+  if (!intro || !introSpacer || !workSection || prefersReducedMotion) {
+    settleIntro();
+    return;
+  }
+
+  syncIntroSpacer();
+
+  if (introStartTop === null) {
+    introStartTop = introSpacer.getBoundingClientRect().top;
+  }
+
+  const spacerTop = introSpacer.getBoundingClientRect().top;
+  const travel = introStartTop - INTRO_TARGET_TOP;
+
+  if (travel <= 0 || spacerTop <= INTRO_TARGET_TOP) {
+    settleIntro();
+    return;
+  }
+
+  const progress = Math.min(
+    Math.max(1 - (spacerTop - INTRO_TARGET_TOP) / travel, 0),
+    1
+  );
+
+  intro.classList.add("is-fixed");
+  intro.classList.remove("is-settled", "is-centered");
+
+  const introHeight = intro.offsetHeight;
+  const introWidth = Math.min(576, window.innerWidth - 32);
+  const workStyles = getComputedStyle(workSection);
+  const workPad = parseFloat(workStyles.paddingLeft) || 16;
+  const workRect = workSection.getBoundingClientRect();
+
+  const startX = (window.innerWidth - introWidth) / 2;
+  const endX = workRect.left + workPad;
+  const startY = window.innerHeight - INTRO_BOTTOM - introHeight;
+  const endY = INTRO_TARGET_TOP;
+
+  intro.style.left = `${startX + (endX - startX) * progress}px`;
+  intro.style.top = `${startY + (endY - startY) * progress}px`;
+  intro.style.width = `${introWidth}px`;
+  intro.style.textAlign = progress < 0.65 ? "center" : "left";
+}
+
 const sectionIds = ["showreel", "work", "contact"];
 const navLinks = new Map(
   sectionIds.map((id) => [
@@ -82,75 +155,22 @@ function updateActiveNav() {
   });
 }
 
-window.addEventListener("scroll", () => {
-  updateIntroScroll();
-  updateActiveNav();
-}, { passive: true });
-updateActiveNav();
-
-const intro = document.getElementById("work-intro");
-const introSpacer = document.querySelector(".work__intro-spacer");
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-const INTRO_SCROLL = 320;
-const INTRO_BOTTOM = 40;
-
-function syncIntroSpacer() {
-  if (!intro || !introSpacer) return;
-  introSpacer.style.height = `${intro.offsetHeight}px`;
-}
-
-function updateIntroScroll() {
-  if (!intro || !introSpacer || prefersReducedMotion) {
-    intro?.classList.add("is-settled");
-    intro?.classList.remove("is-fixed", "is-centered");
-    intro?.style.cssText = "";
-    return;
-  }
-
-  syncIntroSpacer();
-
-  const progress = Math.min(Math.max(window.scrollY / INTRO_SCROLL, 0), 1);
-
-  if (progress >= 1) {
-    intro.classList.remove("is-fixed", "is-centered");
-    intro.classList.add("is-settled");
-    intro.style.cssText = "";
-    return;
-  }
-
-  intro.classList.add("is-fixed");
-  intro.classList.remove("is-settled");
-
-  const spacerRect = introSpacer.getBoundingClientRect();
-  const introHeight = intro.offsetHeight;
-  const introWidth = intro.offsetWidth;
-
-  const startX = (window.innerWidth - introWidth) / 2;
-  const endX = spacerRect.left;
-  const startY = window.innerHeight - INTRO_BOTTOM - introHeight;
-  const endY = spacerRect.top;
-
-  const x = startX + (endX - startX) * progress;
-  const y = startY + (endY - startY) * progress;
-
-  intro.classList.toggle("is-centered", progress < 0.55);
-  intro.style.left = `${x}px`;
-  intro.style.top = `${y}px`;
-  intro.style.bottom = "auto";
-  intro.style.width = `${Math.min(introWidth, window.innerWidth - 32)}px`;
-  intro.style.textAlign = progress < 0.55 ? "center" : "left";
-}
-
-syncIntroSpacer();
-updateIntroScroll();
+window.addEventListener(
+  "scroll",
+  () => {
+    updateIntroScroll();
+    updateActiveNav();
+  },
+  { passive: true }
+);
 
 window.addEventListener("resize", () => {
-  syncIntroSpacer();
-  updateIntroScroll();
+  resetIntroMetrics();
   if (window.innerWidth > 720) setMenuOpen(false);
 });
+
+resetIntroMetrics();
+updateActiveNav();
 
 const revealItems = document.querySelectorAll(".band, .contact");
 

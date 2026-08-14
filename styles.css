@@ -381,14 +381,16 @@ body.is-menu-open {
   z-index: 10;
   margin: 0;
   pointer-events: none;
+  max-width: 36rem;
 }
 
 .work__intro.is-fixed.is-centered {
   left: 50%;
-  bottom: 2.5rem;
+  bottom: 3rem;
   top: auto;
   transform: translateX(-50%);
   text-align: center;
+  width: min(36rem, calc(100% - 2rem));
 }
 
 .work__intro.is-settled {
