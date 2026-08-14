@@ -1,6 +1,6 @@
 :root {
-  --bg: #05070c;
-  --panel: #111;
+  --bg: #02050c;
+  --panel: #0b1220;
   --text: #f4f4f4;
   --muted: #8a8a8a;
   --line: #222;
@@ -27,7 +27,7 @@ html {
 
 body {
   min-height: 100vh;
-  background: var(--bg);
+  background: #02050c;
   color: var(--text);
   font-family: var(--font);
   line-height: 1.5;
@@ -37,13 +37,40 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 50% at 75% 18%, rgba(47, 127, 255, 0.16), transparent 58%),
-    radial-gradient(ellipse 55% 40% at 12% 8%, rgba(77, 159, 255, 0.08), transparent 52%),
-    radial-gradient(ellipse 50% 35% at 40% 95%, rgba(47, 127, 255, 0.06), transparent 55%),
-    linear-gradient(180deg, #070a10 0%, #05070c 45%, #030406 100%);
+    radial-gradient(ellipse 80% 55% at 70% 0%, rgba(56, 120, 255, 0.22), transparent 58%),
+    radial-gradient(ellipse 50% 40% at 8% 20%, rgba(40, 90, 200, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 90% 80%, rgba(30, 70, 180, 0.12), transparent 60%),
+    radial-gradient(ellipse 45% 30% at 35% 100%, rgba(70, 140, 255, 0.08), transparent 55%),
+    linear-gradient(180deg, #06101f 0%, #040914 40%, #02050c 100%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.7;
+  background-image:
+    radial-gradient(1.2px 1.2px at 8% 12%, rgba(210, 230, 255, 0.85), transparent),
+    radial-gradient(1px 1px at 18% 38%, rgba(180, 210, 255, 0.55), transparent),
+    radial-gradient(1.5px 1.5px at 27% 18%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 36% 62%, rgba(160, 200, 255, 0.45), transparent),
+    radial-gradient(1px 1px at 48% 22%, rgba(200, 220, 255, 0.6), transparent),
+    radial-gradient(1.4px 1.4px at 58% 48%, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1px 1px at 67% 14%, rgba(170, 205, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 74% 70%, rgba(190, 215, 255, 0.4), transparent),
+    radial-gradient(1.6px 1.6px at 82% 28%, rgba(255, 255, 255, 0.65), transparent),
+    radial-gradient(1px 1px at 88% 58%, rgba(160, 195, 255, 0.45), transparent),
+    radial-gradient(1px 1px at 14% 78%, rgba(200, 220, 255, 0.35), transparent),
+    radial-gradient(1.2px 1.2px at 42% 86%, rgba(180, 210, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 63% 92%, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 93% 88%, rgba(170, 200, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 5% 52%, rgba(220, 235, 255, 0.3), transparent),
+    radial-gradient(1.3px 1.3px at 95% 8%, rgba(255, 255, 255, 0.55), transparent);
 }
 
 a {
@@ -60,7 +87,7 @@ a {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.85rem var(--pad);
-  background: rgba(5, 7, 12, 0.86);
+  background: rgba(2, 5, 12, 0.78);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
