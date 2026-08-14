@@ -14,14 +14,25 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=18" />
+    <link rel="stylesheet" href="styles.css?v=19" />
   </head>
   <body>
     <header class="bar">
       <a class="bar__brand" href="#top">DOMJA</a>
-      <nav class="bar__nav" aria-label="Hlavní">
+      <button
+        class="bar__menu"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-main"
+        aria-label="Otevřít menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="bar__nav" id="nav-main" aria-label="Hlavní">
         <a href="#showreel">Showreel</a>
-        <a href="#work">Work</a>
+        <a href="#work">Práce</a>
         <a href="#contact">Kontakt</a>
       </nav>
     </header>
@@ -56,7 +67,7 @@
 
       <section class="work" id="work">
         <div class="work__intro">
-          <p class="work__kicker">Selected work</p>
+          <p class="work__kicker">Vybrané projekty</p>
           <h2>Projekty</h2>
           <p>Trailery, montáže, TikTok edity a clipy.</p>
         </div>
@@ -64,7 +75,7 @@
         <div class="band" id="trailers">
           <div class="band__head">
             <h3>Trailery</h3>
-            <span>Unity asset spots</span>
+            <span>Trailery k assetům</span>
           </div>
 
           <div class="list">
@@ -72,7 +83,7 @@
               <div class="item__meta">
                 <span>01</span>
                 <h4>AI Context Builder</h4>
-                <p>Asset trailer</p>
+                <p>Trailer</p>
               </div>
               <div class="video-wrap">
                 <button
@@ -91,7 +102,7 @@
               <div class="item__meta">
                 <span>02</span>
                 <h4>Project Doctor</h4>
-                <p>Asset trailer</p>
+                <p>Trailer</p>
               </div>
               <div class="video-wrap">
                 <button
@@ -110,7 +121,7 @@
               <div class="item__meta">
                 <span>03</span>
                 <h4>Velocity</h4>
-                <p>Unity movement asset trailer</p>
+                <p>Movement trailer</p>
               </div>
               <div class="video-wrap">
                 <button
@@ -137,8 +148,8 @@
             <article class="item">
               <div class="item__meta">
                 <span>01</span>
-                <h4>FiveM Montage</h4>
-                <p>Gameplay edit</p>
+                <h4>FiveM montáž</h4>
+                <p>Herní montáž</p>
               </div>
               <div class="video-wrap">
                 <button
@@ -156,8 +167,8 @@
             <article class="item">
               <div class="item__meta">
                 <span>02</span>
-                <h4>FiveM Montage</h4>
-                <p>Gameplay edit</p>
+                <h4>FiveM montáž</h4>
+                <p>Herní montáž</p>
               </div>
               <div class="video-wrap">
                 <button
@@ -190,7 +201,7 @@
             >
               <span class="tiktok-card__icon" aria-hidden="true"></span>
               <span class="tiktok-card__label">Edit 01</span>
-              <span class="tiktok-card__cta">Watch on TikTok</span>
+              <span class="tiktok-card__cta">Sledovat na TikToku</span>
             </a>
             <a
               class="tiktok-card"
@@ -201,7 +212,7 @@
             >
               <span class="tiktok-card__icon" aria-hidden="true"></span>
               <span class="tiktok-card__label">Edit 02</span>
-              <span class="tiktok-card__cta">Watch on TikTok</span>
+              <span class="tiktok-card__cta">Sledovat na TikToku</span>
             </a>
             <a
               class="tiktok-card"
@@ -212,7 +223,7 @@
             >
               <span class="tiktok-card__icon" aria-hidden="true"></span>
               <span class="tiktok-card__label">Edit 03</span>
-              <span class="tiktok-card__cta">Watch on TikTok</span>
+              <span class="tiktok-card__cta">Sledovat na TikToku</span>
             </a>
           </div>
         </div>
@@ -233,7 +244,7 @@
             >
               <span class="tiktok-card__icon" aria-hidden="true"></span>
               <span class="tiktok-card__label">Clip 01</span>
-              <span class="tiktok-card__cta">Watch on TikTok</span>
+              <span class="tiktok-card__cta">Sledovat na TikToku</span>
             </a>
             <a
               class="tiktok-card"
@@ -244,7 +255,7 @@
             >
               <span class="tiktok-card__icon" aria-hidden="true"></span>
               <span class="tiktok-card__label">Clip 02</span>
-              <span class="tiktok-card__cta">Watch on TikTok</span>
+              <span class="tiktok-card__cta">Sledovat na TikToku</span>
             </a>
             <a
               class="tiktok-card"
@@ -255,7 +266,7 @@
             >
               <span class="tiktok-card__icon" aria-hidden="true"></span>
               <span class="tiktok-card__label">Clip 03</span>
-              <span class="tiktok-card__cta">Watch on TikTok</span>
+              <span class="tiktok-card__cta">Sledovat na TikToku</span>
             </a>
           </div>
         </div>
@@ -293,6 +304,6 @@
       <span>DaVinci Resolve</span>
     </footer>
 
-    <script src="script.js?v=18"></script>
+    <script src="script.js?v=19"></script>
   </body>
 </html>

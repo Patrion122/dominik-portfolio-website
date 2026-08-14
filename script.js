@@ -32,6 +32,36 @@ if (heroPlay && heroBtn) {
   });
 }
 
+const menuBtn = document.querySelector(".bar__menu");
+const nav = document.querySelector(".bar__nav");
+
+function setMenuOpen(isOpen) {
+  if (!menuBtn || !nav) return;
+  menuBtn.setAttribute("aria-expanded", String(isOpen));
+  menuBtn.setAttribute("aria-label", isOpen ? "Zavřít menu" : "Otevřít menu");
+  nav.classList.toggle("is-open", isOpen);
+  document.body.classList.toggle("is-menu-open", isOpen);
+}
+
+if (menuBtn && nav) {
+  menuBtn.addEventListener("click", () => {
+    const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+    setMenuOpen(!isOpen);
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenuOpen(false));
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenuOpen(false);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 720) setMenuOpen(false);
+  });
+}
+
 const revealItems = document.querySelectorAll(".work__intro, .band, .contact");
 
 const observer = new IntersectionObserver(

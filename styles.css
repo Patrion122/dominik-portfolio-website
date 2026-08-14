@@ -86,7 +86,9 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.85rem var(--pad);
+  padding: 0.85rem max(var(--pad), env(safe-area-inset-right))
+    0.85rem max(var(--pad), env(safe-area-inset-left));
+  padding-top: max(0.85rem, env(safe-area-inset-top));
   background: rgba(2, 5, 12, 0.78);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
@@ -110,6 +112,48 @@ a {
 
 .bar__nav a:hover {
   color: var(--accent);
+}
+
+.bar__menu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.45rem;
+  border: 1px solid var(--line);
+  background: rgba(11, 18, 32, 0.85);
+  cursor: pointer;
+  transition:
+    border-color 0.2s var(--ease),
+    background 0.2s var(--ease);
+}
+
+.bar__menu span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  transition:
+    transform 0.25s var(--ease),
+    opacity 0.25s var(--ease);
+}
+
+.bar__menu[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.bar__menu[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.bar__menu[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+body.is-menu-open {
+  overflow: hidden;
 }
 
 .hero {
@@ -545,16 +589,129 @@ a {
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero__name {
+    font-size: clamp(3.2rem, 16vw, 5.5rem);
+  }
+
+  .work,
+  .contact,
+  .foot {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 
 @media (max-width: 720px) {
-  .bar__nav a:not(:last-child) {
-    display: none;
+  .bar__menu {
+    display: flex;
+  }
+
+  .bar__nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: calc(3.35rem + env(safe-area-inset-top, 0px));
+    z-index: 19;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.75rem max(var(--pad), env(safe-area-inset-right))
+      1rem max(var(--pad), env(safe-area-inset-left));
+    background: rgba(2, 5, 12, 0.97);
+    border-bottom: 1px solid var(--line);
+    transform: translateY(calc(-100% - 4rem));
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform 0.3s var(--ease),
+      opacity 0.3s var(--ease);
+  }
+
+  .bar__nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .bar__nav a {
+    padding: 0.85rem 0;
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bar__nav a:last-child {
+    border-bottom: 0;
+  }
+
+  .hero__line {
+    font-size: 1rem;
+  }
+
+  .hero__actions {
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 calc(50% - 0.3rem);
+    min-height: 2.75rem;
+  }
+
+  .band__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .item__meta h4 {
+    font-size: 1.35rem;
+  }
+
+  .item .video-wrap {
+    max-width: none;
+  }
+
+  .video-lazy__play {
+    width: 3rem;
+    height: 3rem;
   }
 
   .shorts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: none;
+    gap: 0.65rem;
+  }
+
+  .tiktok-card__label {
+    font-size: 0.92rem;
+  }
+
+  .tiktok-card__cta {
+    font-size: 0.62rem;
+  }
+
+  .contact a {
+    font-size: clamp(1.25rem, 6.5vw, 1.85rem);
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 420px) {
+  .shorts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 24rem;
+    max-width: 16rem;
+    margin-inline: auto;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 100%;
   }
 }
