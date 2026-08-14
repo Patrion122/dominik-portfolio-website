@@ -68,18 +68,14 @@ const prefersReducedMotion = window.matchMedia(
 let introMoved = false;
 let introSettled = false;
 
-if (introTitle && dock && !prefersReducedMotion) {
-  introTitle.classList.add("is-waiting");
-}
-
 function settleIntro() {
   if (introSettled || !intro || !dock) return;
   introSettled = true;
   introMoved = true;
-  introTitle?.classList.remove("is-waiting");
   dock.classList.add("is-gone");
   dock.classList.remove("is-flying");
   dock.style.cssText = "";
+  document.getElementById("work")?.classList.add("is-ready");
 }
 
 function flyIntroHome() {
@@ -157,7 +153,7 @@ if (location.hash === "#work" || location.hash === "#contact") {
 
 updateActiveNav();
 
-const revealItems = document.querySelectorAll(".band, .contact");
+const revealItems = document.querySelectorAll(".contact");
 
 const observer = new IntersectionObserver(
   (entries) => {

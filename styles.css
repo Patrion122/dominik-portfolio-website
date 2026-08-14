@@ -374,8 +374,19 @@ body.is-menu-open {
   text-transform: uppercase;
 }
 
-.work__intro h2.is-waiting {
-  visibility: hidden;
+.work__intro,
+.work .band {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.5s var(--ease),
+    transform 0.5s var(--ease);
+}
+
+.work.is-ready .work__intro,
+.work.is-ready .band {
+  opacity: 1;
+  transform: none;
 }
 
 .intro-dock {
@@ -721,6 +732,13 @@ body.is-menu-open {
 @media (prefers-reduced-motion: reduce) {
   .scroll-hint__mouse::before {
     animation: none;
+  }
+
+  .work__intro,
+  .work .band {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
