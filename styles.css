@@ -363,20 +363,28 @@ body.is-menu-open {
 }
 
 .work__intro {
-  max-width: 28rem;
-  margin-bottom: 3rem;
+  max-width: 36rem;
+  margin-bottom: 4.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
 }
 
-.work__kicker {
-  margin-bottom: 0.55rem;
-  color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+.work__intro h2 {
+  font-family: var(--display);
+  font-size: clamp(1.85rem, 3.5vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
+  margin-bottom: 0.65rem;
 }
 
-.work__intro h2,
+.work__intro p {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  max-width: 28rem;
+}
+
 .contact h2 {
   font-family: var(--display);
   font-size: clamp(2rem, 4.5vw, 3rem);
@@ -386,35 +394,35 @@ body.is-menu-open {
   margin-bottom: 0.5rem;
 }
 
-.work__intro p {
-  color: var(--muted);
-}
-
 .band + .band {
-  margin-top: 3.5rem;
-  padding-top: 3rem;
-  border-top: 1px solid var(--line);
+  margin-top: 4rem;
+  padding-top: 0;
+  border-top: 0;
 }
 
 .band__head {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .band__head h3 {
-  font-family: var(--display);
-  font-size: 1.45rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--accent);
 }
 
 .band__head span {
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
+  font-weight: 500;
 }
 
 .list {
@@ -445,9 +453,9 @@ body.is-menu-open {
 
 .item__meta h4 {
   font-family: var(--display);
-  font-size: 1.55rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
