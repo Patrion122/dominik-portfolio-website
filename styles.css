@@ -110,8 +110,23 @@ a {
   font-weight: 500;
 }
 
-.bar__nav a:hover {
+.bar__nav a:hover,
+.bar__nav a.is-active {
   color: var(--accent);
+}
+
+.bar__nav a.is-active {
+  position: relative;
+}
+
+.bar__nav a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 2px;
+  background: var(--accent);
 }
 
 .bar__menu {
@@ -541,26 +556,61 @@ body.is-menu-open {
 
 .contact > p {
   max-width: 32rem;
-  margin: 0.6rem 0 1.4rem;
+  margin: 0.6rem 0 1.6rem;
   color: var(--muted);
 }
 
-.contact ul {
-  list-style: none;
+.contact__cards {
   display: grid;
-  gap: 0.45rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 52rem;
 }
 
-.contact a {
-  font-family: var(--display);
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  font-weight: 700;
-  letter-spacing: 0.03em;
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.15rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  transition:
+    border-color 0.2s var(--ease),
+    transform 0.2s var(--ease),
+    background 0.2s var(--ease);
+}
+
+.contact-card:hover {
+  border-color: rgba(77, 159, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.contact-card--primary {
+  background: rgba(47, 127, 255, 0.12);
+  border-color: rgba(77, 159, 255, 0.35);
+}
+
+.contact-card--primary:hover {
+  background: rgba(47, 127, 255, 0.2);
+  border-color: rgba(77, 159, 255, 0.65);
+}
+
+.contact-card__label {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.contact a:hover {
-  color: var(--accent);
+.contact-card__value {
+  font-family: var(--display);
+  font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  word-break: break-word;
 }
 
 .foot {
@@ -648,6 +698,14 @@ body.is-menu-open {
     border-bottom: 1px solid var(--line);
   }
 
+  .bar__nav a.is-active {
+    color: var(--accent);
+  }
+
+  .bar__nav a.is-active::after {
+    display: none;
+  }
+
   .bar__nav a:last-child {
     border-bottom: 0;
   }
@@ -698,9 +756,9 @@ body.is-menu-open {
     font-size: 0.62rem;
   }
 
-  .contact a {
-    font-size: clamp(1.25rem, 6.5vw, 1.85rem);
-    word-break: break-word;
+  .contact__cards {
+    grid-template-columns: 1fr;
+    max-width: 24rem;
   }
 }
 

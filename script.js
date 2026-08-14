@@ -62,6 +62,33 @@ if (menuBtn && nav) {
   });
 }
 
+const sectionIds = ["showreel", "work", "contact"];
+const navLinks = new Map(
+  sectionIds.map((id) => [
+    id,
+    document.querySelector(`.bar__nav a[href="#${id}"]`),
+  ])
+);
+
+function updateActiveNav() {
+  const offset = 120;
+  let current = sectionIds[0];
+
+  sectionIds.forEach((id) => {
+    const section = document.getElementById(id);
+    if (section && section.getBoundingClientRect().top <= offset) {
+      current = id;
+    }
+  });
+
+  navLinks.forEach((link, id) => {
+    link?.classList.toggle("is-active", id === current);
+  });
+}
+
+window.addEventListener("scroll", updateActiveNav, { passive: true });
+updateActiveNav();
+
 const revealItems = document.querySelectorAll(".work__intro, .band, .contact");
 
 const observer = new IntersectionObserver(
