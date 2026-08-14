@@ -156,17 +156,41 @@ a {
 
 .hero .video-wrap--hero {
   width: 100%;
-  box-shadow: none;
+  border-color: rgba(77, 159, 255, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(77, 159, 255, 0.12),
+    0 0 40px rgba(47, 127, 255, 0.22);
+  transition:
+    border-color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+
+.hero .video-wrap--hero:hover {
+  border-color: rgba(77, 159, 255, 0.7);
+  box-shadow:
+    0 0 0 1px rgba(77, 159, 255, 0.2),
+    0 0 56px rgba(47, 127, 255, 0.32);
+  transform: translateY(-2px);
 }
 
 .video-wrap--hero .video-lazy__play {
   top: auto;
   bottom: 1.15rem;
   transform: translate(-50%, 0);
+  width: 4rem;
+  height: 4rem;
+  background: rgba(47, 127, 255, 0.78);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+.video-wrap--hero .video-lazy__play::before {
+  border-width: 9px 0 9px 16px;
 }
 
 .video-wrap--hero .video-lazy:hover .video-lazy__play {
-  transform: translate(-50%, 0) scale(1.06);
+  transform: translate(-50%, 0) scale(1.08);
+  background: rgba(77, 159, 255, 0.95);
 }
 
 .video-wrap {
