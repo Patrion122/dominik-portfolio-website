@@ -39,28 +39,6 @@ if (heroWrap) {
   heroObserver.observe(heroWrap);
 }
 
-async function loadTikTokThumb(card) {
-  const url = card.dataset.tiktok;
-  if (!url) return;
-
-  try {
-    const res = await fetch(
-      `https://noembed.com/embed?url=${encodeURIComponent(url)}`
-    );
-    if (!res.ok) return;
-    const data = await res.json();
-    if (data.thumbnail_url) {
-      card.style.backgroundImage = `url("${data.thumbnail_url}")`;
-    }
-  } catch {
-    /* keep gradient fallback */
-  }
-}
-
-document.querySelectorAll(".tiktok-card").forEach((card) => {
-  loadTikTokThumb(card);
-});
-
 const revealItems = document.querySelectorAll(".work__intro, .band, .contact");
 
 const observer = new IntersectionObserver(
