@@ -363,9 +363,8 @@ body.is-menu-open {
 
 .work__intro {
   max-width: 36rem;
-  margin-bottom: 2.25rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.75rem;
+  padding-bottom: 0;
 }
 
 .work__intro h2 {
