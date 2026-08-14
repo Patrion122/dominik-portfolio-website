@@ -25,18 +25,7 @@
 
   <text
     x="640"
-    y="292"
-    text-anchor="middle"
-    fill="#4d9fff"
-    font-family="'Barlow Condensed', 'Arial Narrow', sans-serif"
-    font-size="34"
-    font-weight="600"
-    letter-spacing="0.32em"
-  >DOMJA</text>
-
-  <text
-    x="640"
-    y="392"
+    y="372"
     text-anchor="middle"
     fill="#f4f4f4"
     font-family="'Barlow Condensed', 'Arial Narrow', sans-serif"
@@ -45,5 +34,5 @@
     letter-spacing="0.08em"
   >SHOWREEL</text>
 
-  <line x1="420" y1="430" x2="860" y2="430" stroke="#4d9fff" stroke-width="1" opacity="0.55"/>
+  <line x1="420" y1="410" x2="860" y2="410" stroke="#4d9fff" stroke-width="1" opacity="0.55"/>
 </svg>
