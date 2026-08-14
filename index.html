@@ -14,15 +14,14 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=6" />
+    <link rel="stylesheet" href="styles.css?v=7" />
   </head>
   <body>
     <header class="bar">
       <a class="bar__brand" href="#top">DOMJA</a>
       <nav class="bar__nav" aria-label="Hlavní">
         <a href="#showreel">Showreel</a>
-        <a href="#trailers">Trailery</a>
-        <a href="#shorts">Shorts</a>
+        <a href="#work">Work</a>
         <a href="#contact">Kontakt</a>
       </nav>
     </header>
@@ -49,57 +48,84 @@
         </div>
       </section>
 
-      <section class="block" id="trailers">
-        <div class="block__head">
-          <h2>Trailery</h2>
-          <p>Trailery pro hry</p>
+      <section class="work" id="work">
+        <div class="work__intro">
+          <p class="work__kicker">Selected work</p>
+          <h2>Projekty</h2>
+          <p>Trailery a short-form edity.</p>
         </div>
-        <div class="cuts">
-          <article class="cut" data-video-slot="trailer-1">
-            <div class="cut__media">
-              <span>01</span>
-            </div>
-            <h3>Trailer 01</h3>
-            <p>Game trailer</p>
-          </article>
-          <article class="cut" data-video-slot="trailer-2">
-            <div class="cut__media">
-              <span>02</span>
-            </div>
-            <h3>Trailer 02</h3>
-            <p>Game trailer</p>
-          </article>
-          <article class="cut" data-video-slot="trailer-3">
-            <div class="cut__media">
-              <span>03</span>
-            </div>
-            <h3>Trailer 03</h3>
-            <p>Game trailer</p>
-          </article>
-        </div>
-      </section>
 
-      <section class="block" id="shorts">
-        <div class="block__head">
-          <h2>Shorts</h2>
-          <p>TikTok edity a clipy</p>
+        <div class="band" id="trailers">
+          <div class="band__head">
+            <h3>Trailery</h3>
+            <span>Game cuts</span>
+          </div>
+
+          <div class="list">
+            <article class="item" data-video-slot="trailer-1">
+              <div class="item__meta">
+                <span>01</span>
+                <h4>Trailer 01</h4>
+                <p>Game trailer</p>
+              </div>
+              <div class="item__media">
+                <span>Play</span>
+              </div>
+            </article>
+
+            <article class="item" data-video-slot="trailer-2">
+              <div class="item__meta">
+                <span>02</span>
+                <h4>Trailer 02</h4>
+                <p>Game trailer</p>
+              </div>
+              <div class="item__media">
+                <span>Play</span>
+              </div>
+            </article>
+
+            <article class="item" data-video-slot="trailer-3">
+              <div class="item__meta">
+                <span>03</span>
+                <h4>Trailer 03</h4>
+                <p>Game trailer</p>
+              </div>
+              <div class="item__media">
+                <span>Play</span>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="shorts">
-          <article class="phone" data-video-slot="short-1">
-            <div class="phone__media"><span>01</span></div>
-            <h3>Edit 01</h3>
-            <p>TikTok / clip</p>
-          </article>
-          <article class="phone" data-video-slot="short-2">
-            <div class="phone__media"><span>02</span></div>
-            <h3>Edit 02</h3>
-            <p>TikTok / clip</p>
-          </article>
-          <article class="phone" data-video-slot="short-3">
-            <div class="phone__media"><span>03</span></div>
-            <h3>Edit 03</h3>
-            <p>TikTok / clip</p>
-          </article>
+
+        <div class="band" id="shorts">
+          <div class="band__head">
+            <h3>Shorts</h3>
+            <span>TikTok / clips</span>
+          </div>
+
+          <div class="shorts">
+            <article class="short" data-video-slot="short-1">
+              <div class="short__media"><span>01</span></div>
+              <div class="short__meta">
+                <h4>Edit 01</h4>
+                <p>TikTok</p>
+              </div>
+            </article>
+            <article class="short" data-video-slot="short-2">
+              <div class="short__media"><span>02</span></div>
+              <div class="short__meta">
+                <h4>Edit 02</h4>
+                <p>Clip</p>
+              </div>
+            </article>
+            <article class="short" data-video-slot="short-3">
+              <div class="short__media"><span>03</span></div>
+              <div class="short__meta">
+                <h4>Edit 03</h4>
+                <p>TikTok</p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -125,6 +151,6 @@
       <span>DaVinci Resolve</span>
     </footer>
 
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=7"></script>
   </body>
 </html>
