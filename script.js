@@ -22,21 +22,14 @@ document.querySelectorAll(".video-lazy").forEach((button) => {
   });
 });
 
-const heroWrap = document.querySelector(".video-wrap--hero");
-if (heroWrap) {
-  const heroBtn = heroWrap.querySelector(".video-lazy");
-  const heroObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && heroBtn) {
-          loadYouTube(heroWrap, heroBtn.dataset.youtube);
-          heroObserver.disconnect();
-        }
-      });
-    },
-    { threshold: 0.35 }
-  );
-  heroObserver.observe(heroWrap);
+const heroPlay = document.querySelector("[data-play-hero]");
+const heroBtn = document.querySelector(".video-wrap--hero .video-lazy");
+if (heroPlay && heroBtn) {
+  heroPlay.addEventListener("click", (event) => {
+    event.preventDefault();
+    heroBtn.click();
+    document.getElementById("showreel")?.scrollIntoView({ behavior: "smooth" });
+  });
 }
 
 const revealItems = document.querySelectorAll(".work__intro, .band, .contact");

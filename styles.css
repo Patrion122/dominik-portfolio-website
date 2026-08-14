@@ -156,6 +156,17 @@ a {
 
 .hero .video-wrap--hero {
   width: 100%;
+  box-shadow: 0 0 48px rgba(47, 127, 255, 0.18);
+}
+
+.video-wrap--hero .video-lazy__play {
+  top: auto;
+  bottom: 1.15rem;
+  transform: translate(-50%, 0);
+}
+
+.video-wrap--hero .video-lazy:hover .video-lazy__play {
+  transform: translate(-50%, 0) scale(1.06);
 }
 
 .video-wrap {
