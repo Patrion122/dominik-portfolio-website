@@ -859,6 +859,16 @@ body.is-menu-open {
     height: 3rem;
   }
 
+  .video-wrap--hero .video-lazy__play {
+    width: 2.25rem;
+    height: 2.25rem;
+    bottom: 0.75rem;
+  }
+
+  .video-wrap--hero .video-lazy__play::before {
+    border-width: 5px 0 5px 9px;
+  }
+
   .shorts {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     max-width: none;
