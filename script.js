@@ -58,51 +58,26 @@ if (menuBtn && nav) {
   });
 }
 
-const intro = document.getElementById("work-intro");
-const introTitle = intro?.querySelector("h2");
 const dock = document.getElementById("intro-dock");
 const scrollHint = dock?.querySelector(".scroll-hint");
+const isMobile = window.matchMedia("(max-width: 900px)");
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
-let introMoved = false;
 let introSettled = false;
 
-function settleIntro() {
-  if (introSettled || !intro || !dock) return;
-  introSettled = true;
-  introMoved = true;
-  dock.classList.add("is-gone");
-  dock.classList.remove("is-flying");
-  dock.style.cssText = "";
-  document.getElementById("work")?.classList.add("is-ready");
+function skipIntroAnim() {
+  return prefersReducedMotion || isMobile.matches;
 }
 
-function flyIntroHome() {
-  if (introMoved || !intro || !dock || !introTitle) return;
-  introMoved = true;
+function settleIntro() {
+  if (introSettled) return;
+  introSettled = true;
+  document.getElementById("work")?.classList.add("is-ready");
 
-  if (prefersReducedMotion) {
-    settleIntro();
-    return;
-  }
-
-  const from = dock.querySelector(".intro-dock__title").getBoundingClientRect();
-  const to = introTitle.getBoundingClientRect();
-  const dx = to.left - from.left;
-  const dy = to.top - from.top;
-
-  dock.classList.add("is-flying");
-  dock.style.transition = "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)";
-  dock.style.transform = `translate(calc(-50% + ${dx}px), ${dy}px)`;
-
-  const finish = () => {
-    dock.removeEventListener("transitionend", finish);
-    settleIntro();
-  };
-
-  dock.addEventListener("transitionend", finish);
-  window.setTimeout(finish, 800);
+  if (!dock) return;
+  dock.classList.add("is-leaving");
+  window.setTimeout(() => dock.classList.add("is-gone"), 400);
 }
 
 const sectionIds = ["showreel", "work", "contact"];
@@ -132,7 +107,7 @@ function updateActiveNav() {
 window.addEventListener(
   "scroll",
   () => {
-    if (window.scrollY > 12) flyIntroHome();
+    if (!skipIntroAnim() && window.scrollY > 12) settleIntro();
     updateActiveNav();
   },
   { passive: true }
@@ -142,12 +117,20 @@ window.addEventListener("resize", () => {
   if (window.innerWidth > 720) setMenuOpen(false);
 });
 
+isMobile.addEventListener("change", () => {
+  if (skipIntroAnim()) settleIntro();
+});
+
 scrollHint?.addEventListener("click", () => {
-  flyIntroHome();
+  settleIntro();
   document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
 });
 
-if (location.hash === "#work" || location.hash === "#contact") {
+if (
+  skipIntroAnim() ||
+  location.hash === "#work" ||
+  location.hash === "#contact"
+) {
   settleIntro();
 }
 

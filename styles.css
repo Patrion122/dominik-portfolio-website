@@ -400,9 +400,11 @@ body.is-menu-open {
   gap: 0.7rem;
   transform: translateX(-50%);
   pointer-events: none;
+  transition: opacity 0.35s var(--ease);
 }
 
-.intro-dock.is-flying {
+.intro-dock.is-leaving {
+  opacity: 0;
   pointer-events: none;
 }
 
@@ -467,9 +469,6 @@ body.is-menu-open {
   }
 }
 
-.intro-dock.is-flying .scroll-hint {
-  opacity: 0;
-}
 
 .contact h2 {
   font-family: var(--display);
@@ -743,6 +742,17 @@ body.is-menu-open {
 }
 
 @media (max-width: 900px) {
+  .intro-dock {
+    display: none;
+  }
+
+  .work__intro,
+  .work .band {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
